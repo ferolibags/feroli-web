@@ -29,7 +29,7 @@ Al tocarla, la clienta ve el pedido en `pedido.html`.
 | `img/modelos/` | `[pieza].jpg` modelo con el bolso | tarjetas (modelo → bolso en hover) |
 | `img/editorial/` | `hero.jpg`, `dia-002.jpg`, `filosofia.jpg`, `cierre.jpg` | hero, Día, Filosofía, cierre |
 
-Pendiente: medidas de Aura, Nox, Solis, Ámbar y Valentine; tiempo de entrega de Bianca, Coral Baguette y Terra (campos `medidas` y `entrega` en `js/productos.js`).
+Pendiente: medidas de Valentine (campo `medidas` en `js/productos.js`).
 
 ## Desplegar
 - Vercel: "Add New → Project", importa la carpeta (o `vercel` desde la terminal). Sin build command; output = raíz.
