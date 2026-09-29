@@ -629,3 +629,13 @@ em { font-style: normal; }
 .pdp__chars { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .pdp__chars li { font-size: 12px; letter-spacing: .04em; color: var(--vino); padding: 8px 14px; border: 1px solid var(--linea); border-radius: 999px; }
 .pdp__chars li::before { content: '✦'; color: var(--dorado); margin-right: 8px; font-size: 10px; }
+
+/* disponibilidad */
+.pdp__stock { display: grid; gap: 6px; margin-top: -4px; }
+.stock { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--tinta); letter-spacing: .02em; }
+.stock .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--dorado); }
+.stock.is-now .dot { background: #5E7A4F; box-shadow: 0 0 0 3px rgba(94,122,79,.15); }
+.stock--color { color: var(--tinta-60); padding-left: 17px; }
+.aviso { font-family: var(--serif); font-size: 17px; line-height: 1.35; color: var(--vino); padding: 14px 0 14px 16px; border-left: 1px solid var(--dorado); }
+.cart__foot .aviso { font-size: 15px; padding: 8px 0 8px 14px; }
+.cart-item__stock { font-size: 11px; color: var(--tinta-60); margin-top: 2px; letter-spacing: .02em; }

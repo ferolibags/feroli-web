@@ -15,6 +15,7 @@
         detalle en el hover.
       - colecciones: en qué bloques aparece y en qué orden.
       - medidas: filas de la tabla de medidas [['Ancho', '19 cm'], ...].
+      - entrega: disponibilidad (ej. 'Bajo pedido · 4 días hábiles'). color: nota de color opcional.
       - precio: null muestra "Precio por confirmar" hasta que pongas el valor.
    ========================================================= */
 
@@ -22,7 +23,7 @@ window.FEROLI_CONFIG = {
   whatsapp: '573206586406', // número oficial FEROLI (+57 320 658 6406)
   instagram: 'https://www.instagram.com/feroli.bags',
   // Dominio público del sitio (para los enlaces del pedido en WhatsApp).
-  // Si cambias el dominio, reemplaza también feroli.vercel.app en p/*.html y pedido.html.
+  // Si cambias el dominio, reemplaza también feroli-web.vercel.app en p/*.html y pedido.html.
   sitio: 'https://feroli-web.vercel.app',
 };
 
@@ -30,7 +31,8 @@ window.PRODUCTOS = [
   {
     id: 'aura',
     nombre: 'Bolso Aura',
-    precio: 95000,
+    precio: 140000,
+    entrega: 'Bajo pedido · 5 días',
     fotos: ['img/productos/aura-1.webp', 'img/productos/aura-2.webp'],
     modelo: '',
     colecciones: { destacados: 1, dia: 2 },
@@ -47,7 +49,9 @@ window.PRODUCTOS = [
   {
     id: 'alba-marfil',
     nombre: 'Totebag Alba Marfil',
-    precio: 95000,
+    precio: 280000,
+    entrega: 'Bajo pedido · 7 días hábiles',
+    color: 'Eliges el color',
     medidas: [['Ancho', '34 cm'], ['Alto', '22 cm'], ['Capacidad', 'Cabe un iPhone Pro Max']],
     fotos: ['img/productos/alba-marfil-1.webp', 'img/productos/alba-marfil-2.webp', 'img/productos/alba-marfil-4.jpg'],
     modelo: 'img/modelos/alba-marfil.jpg',
@@ -56,7 +60,8 @@ window.PRODUCTOS = [
   {
     id: 'nox',
     nombre: 'Bolso Nox',
-    precio: 150000,
+    precio: 160000,
+    entrega: 'Bajo pedido · 4 días hábiles',
     fotos: ['img/productos/nox-1.webp', 'img/productos/nox-2.webp', 'img/productos/nox-3.jpg'],
     modelo: 'img/modelos/nox.jpg',
     colecciones: { destacados: 4, noche: 1 },
@@ -64,7 +69,9 @@ window.PRODUCTOS = [
   {
     id: 'boreal',
     nombre: 'Bolso Boreal',
-    precio: null, // pendiente: escribe el precio, ej. 120000
+    precio: 200000,
+    entrega: 'Disponible · entrega inmediata',
+    color: 'Eliges el color (bajo pedido)',
     medidas: [['Ancho', '19 cm'], ['Alto', '16 cm'], ['Largo', '10 cm'], ['Forro', 'Interno de satín'], ['Capacidad', 'Cabe un iPhone Pro Max']],
     fotos: ['img/productos/aurora-1.webp', 'img/productos/aurora-2.webp'],
     modelo: '',
@@ -82,7 +89,8 @@ window.PRODUCTOS = [
   {
     id: 'solis',
     nombre: 'Bolso Solis',
-    precio: 98000, // confirmar
+    precio: 150000,
+    entrega: 'Bajo pedido · 4 días',
     fotos: ['img/productos/coral-baguette-1.webp', 'img/productos/coral-baguette-2.webp', 'img/productos/coral-baguette-3.jpg'],
     modelo: 'img/editorial/dia-002.jpg',
     colecciones: { noche: 3 },
@@ -99,7 +107,8 @@ window.PRODUCTOS = [
   {
     id: 'ambar',
     nombre: 'Bolso Ámbar',
-    precio: null, // pendiente
+    precio: 190000,
+    entrega: 'Bajo pedido · 4 días',
     fotos: ['img/productos/ambar-1.webp', 'img/productos/ambar-2.webp', 'img/productos/ambar-5.jpg', 'img/productos/ambar-3.jpg', 'img/productos/ambar-4.jpg'],
     modelo: 'img/modelos/ambar.jpg',
     colecciones: { noche: 5 },
@@ -107,7 +116,8 @@ window.PRODUCTOS = [
   {
     id: 'valentine',
     nombre: 'Bolso Valentine',
-    precio: null, // pendiente
+    precio: 160000,
+    entrega: 'Bajo pedido · 4 días hábiles',
     especial: true,
     fotos: ['img/productos/valentine-1.webp', 'img/productos/valentine-3.jpg', 'img/productos/valentine-4.jpg', 'img/productos/valentine-5.jpg', 'img/productos/valentine-6.jpg'],
     modelo: 'img/modelos/valentine.jpg',

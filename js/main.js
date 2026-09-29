@@ -207,7 +207,7 @@
           <img src="${p.fotos[0]}" alt="${esc(p.nombre)}">
           <div>
             <p class="cart-item__name">${esc(p.nombre)}</p>
-            <p class="cart-item__price">${precio(p.precio)}</p>
+            <p class="cart-item__price">${precio(p.precio)}</p>${p.entrega ? `<p class="cart-item__stock">${esc(p.entrega)}</p>` : ''}
             <div class="qty"><button data-qty="-1" aria-label="Quitar una">−</button><span>${i.qty}</span><button data-qty="1" aria-label="Agregar una">+</button></div>
           </div>
           <div class="cart-item__side"><button class="cart-item__rm" data-rm>Quitar</button><p class="cart-item__sum">${p.precio == null ? 'Por confirmar' : precio(p.precio * i.qty)}</p></div>
@@ -256,7 +256,7 @@
       const qs = new URLSearchParams({ i: items.map((i) => `${i.id}.${i.qty}`).join('_'), n: num, d: fecha });
       // WhatsApp muestra la factura como imagen de vista previa de este enlace
       const link = `${base}/api/pedido?${qs}`;
-      const msg = `Hola FEROLI, quiero hacer este pedido de ORIGEN.\n\nPedido No. ${num}\n${lines.join('\n')}\n\nTotal: ${precio(total())}${items.some((i) => byId[i.id].precio == null) ? ' (+ piezas con precio por confirmar)' : ''}\n\nMi factura:\n${link}`;
+      const msg = `Hola FEROLI, quiero hacer este pedido de ORIGEN.\n\nPedido No. ${num}\n${lines.join('\n')}\n\nTotal: ${precio(total())}${items.some((i) => byId[i.id].precio == null) ? ' (+ piezas con precio por confirmar)' : ''}\n\n¿Alguna de estas piezas está disponible para entrega inmediata?\n\nMi factura:\n${link}`;
       const a = document.createElement('a');
       a.href = waLink(msg); a.target = '_blank'; a.rel = 'noopener';
       document.body.appendChild(a); a.click(); a.remove();
@@ -301,6 +301,9 @@
     pdp.querySelector('.pdp__coll').innerHTML = esc(COLL_NAME[colls[colls.length - 1]] || 'ORIGEN').replace('//', '<span class="sep">//</span>');
     pdp.querySelector('.pdp__name').textContent = p.nombre;
     pdp.querySelector('.pdp__price').textContent = precio(p.precio);
+    const stock = pdp.querySelector('.pdp__stock');
+    stock.innerHTML = (p.entrega ? `<p class="stock ${/inmediata/i.test(p.entrega) ? 'is-now' : ''}"><span class="dot"></span>${esc(p.entrega)}</p>` : '') + (p.color ? `<p class="stock stock--color">${esc(p.color)}</p>` : '');
+    stock.hidden = !stock.innerHTML;
     pdp.querySelector('.pdp__cta').dataset.add = p.id;
     pdp.querySelector('.pdp__wa').href = waPieza(p);
     const specs = pdp.querySelector('.pdp__specs');
