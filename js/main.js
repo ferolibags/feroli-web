@@ -248,12 +248,15 @@
     el.querySelector('[data-checkout]').addEventListener('click', () => {
       if (!items.length) return;
       const base = (CFG.sitio || new URL('.', location.href).href).replace(/\/$/, '');
-      const lines = items.map((i) => `• ${byId[i.id].nombre} × ${i.qty} — ${byId[i.id].precio == null ? 'precio por confirmar' : precio(byId[i.id].precio * i.qty)}`);
-      // un solo enlace: WhatsApp muestra su tarjeta con imagen (una pieza: la foto del bolso; varias: el pedido)
-      const link = items.length === 1
-        ? `${base}/p/${items[0].id}.html#${items[0].qty}`
-        : `${base}/pedido.html#${items.map((i) => `${i.id}.${i.qty}`).join('_')}`;
-      const msg = `Hola FEROLI, quiero hacer este pedido de ORIGEN:\n\n${lines.join('\n')}\n\nTotal: ${precio(total())}${items.some((i) => byId[i.id].precio == null) ? ' (+ piezas con precio por confirmar)' : ''}\n\nMi pedido con fotos:\n${link}`;
+      const lines = items.map((i) => `• ${byId[i.id].nombre} x ${i.qty} — ${byId[i.id].precio == null ? 'precio por confirmar' : precio(byId[i.id].precio * i.qty)}`);
+      // número de pedido + fecha: la misma info que imprime la factura (/api/factura)
+      const now = new Date();
+      const num = 'FER-' + now.getTime().toString(36).slice(-5).toUpperCase();
+      const fecha = [now.getDate(), now.getMonth() + 1].map((x) => String(x).padStart(2, '0')).join('.') + '.' + now.getFullYear();
+      const qs = new URLSearchParams({ i: items.map((i) => `${i.id}.${i.qty}`).join('_'), n: num, d: fecha });
+      // WhatsApp muestra la factura como imagen de vista previa de este enlace
+      const link = `${base}/api/pedido?${qs}`;
+      const msg = `Hola FEROLI, quiero hacer este pedido de ORIGEN.\n\nPedido No. ${num}\n${lines.join('\n')}\n\nTotal: ${precio(total())}${items.some((i) => byId[i.id].precio == null) ? ' (+ piezas con precio por confirmar)' : ''}\n\nMi factura:\n${link}`;
       const a = document.createElement('a');
       a.href = waLink(msg); a.target = '_blank'; a.rel = 'noopener';
       document.body.appendChild(a); a.click(); a.remove();
@@ -391,8 +394,21 @@
   /* ---------- toda la colección ---------- */
   const allEl = document.getElementById('all');
   const allGrid = allEl.querySelector('.all__grid');
-  allGrid.innerHTML = PRODUCTOS.filter((p) => p.visible !== false).map((p, i) => allCardHTML(p, i)).join('');
+  const ALL_SECC = [['dia', 'Día', 'ORIGEN // 002'], ['noche', 'Noche', 'ORIGEN // 003'], ['especial', 'Edición especial', 'Pieza limitada']];
+  allGrid.innerHTML = ALL_SECC.map(([key, titulo, sub]) => {
+    const ps = inColl(key).filter((p) => p.visible !== false);
+    if (!ps.length) return '';
+    return `<section class="all__sec" id="todas-${key}">
+      <div class="all__sechead"><h3 class="all__sectitle">${titulo}</h3><p class="eyebrow">${esc(sub).replace('//', '<span class="sep">//</span>')} · ${String(ps.length).padStart(2, '0')}</p></div>
+      <div class="all__cards">${ps.map(allCardHTML).join('')}</div>
+    </section>`;
+  }).join('');
   bindCards(allGrid);
+  allEl.querySelectorAll('[data-jump]').forEach((a) => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const t = document.getElementById(a.dataset.jump);
+    if (t) allEl.scrollTo({ top: t.offsetTop - 80, behavior: reduce ? 'auto' : 'smooth' });
+  }));
   const openAll = () => {
     allEl.hidden = false; document.body.classList.add('is-locked');
     requestAnimationFrame(() => requestAnimationFrame(() => allEl.classList.add('is-open')));

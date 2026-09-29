@@ -6,13 +6,16 @@ Sitio estático (HTML/CSS/JS, sin build) listo para Vercel.
 - **WhatsApp e Instagram:** `js/productos.js` → `FEROLI_CONFIG.whatsapp` (número oficial `573206586406`) e `instagram`.
 - **Productos:** `js/productos.js` → arreglo `PRODUCTOS` (nombre, precio, fotos, modelo, colecciones).
 
-## Carrito y pedido por WhatsApp
-"Finalizar pedido por WhatsApp" abre el chat con la lista de piezas, el total y **un solo enlace**:
-- Una pieza → `p/[pieza].html`: WhatsApp muestra una tarjeta con la foto del bolso, nombre y precio (`img/og/[pieza].jpg`).
-- Varias piezas → `pedido.html#...`: tarjeta con la colección y, al abrirla, el pedido completo con fotos y total.
+## Carrito y factura por WhatsApp
+"Finalizar pedido por WhatsApp" abre el chat con el número de pedido, las piezas, el total y un enlace
+`/api/pedido?...`. WhatsApp muestra ese enlace con la **factura FEROLI como imagen** (1080 × 1350),
+generada por `api/factura.js` con Qwenzy, el logo, las fotos de cada bolso (`img/thumbs/`) y el total.
+Al tocarla, la clienta ve el pedido en `pedido.html`.
 
-Las tarjetas solo aparecen con el sitio publicado. El dominio está como `https://feroli.vercel.app`:
-si usas otro, cámbialo en `js/productos.js` (`sitio`) y busca/reemplaza `feroli.vercel.app` en `p/*.html`, `pedido.html` e `index.html`.
+- Requiere desplegar en Vercel (usa `@vercel/og`, declarado en `package.json`; Vercel lo instala solo).
+- Los precios y nombres se leen de `js/productos.js`: no hay que tocar nada más al cambiarlos.
+- Si agregas un bolso nuevo, crea su miniatura PNG en `img/thumbs/` con el mismo nombre que su foto `-1.webp`.
+- `sitio` en `js/productos.js` debe ser el dominio real (hoy `https://feroli.vercel.app`).
 
 ## Tipografías
 - Qwenzy (oficial, `fonts/qwenzy.woff2`): titulares, nombres de pieza, ticker.

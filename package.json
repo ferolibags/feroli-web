@@ -1,0 +1,8 @@
+{
+  "name": "feroli-web",
+  "private": true,
+  "description": "FEROLI — sitio estático + funciones para la factura del pedido",
+  "dependencies": {
+    "@vercel/og": "^0.6.2"
+  }
+}
