@@ -300,6 +300,11 @@
     pdp.querySelector('.pdp__price').textContent = precio(p.precio);
     pdp.querySelector('.pdp__cta').dataset.add = p.id;
     pdp.querySelector('.pdp__wa').href = waPieza(p);
+    const specs = pdp.querySelector('.pdp__specs');
+    specs.innerHTML = p.medidas && p.medidas.length ? `
+      <p class="eyebrow">Medidas</p>
+      <dl class="specs">${p.medidas.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '';
+    specs.hidden = !specs.innerHTML;
     const labels = ['Vista completa', 'Detalle de cuentas y placa', 'Con modelo', 'Otra vista', 'Otra vista'];
     const fotos = p.fotos.slice(0, 5);
     gTrack.innerHTML = fotos.map((src, i) => `

@@ -26,7 +26,7 @@ si usas otro, cámbialo en `js/productos.js` (`sitio`) y busca/reemplaza `feroli
 | `img/modelos/` | `[pieza].jpg` modelo con el bolso | tarjetas (modelo → bolso en hover) |
 | `img/editorial/` | `hero.jpg`, `dia-002.jpg`, `filosofia.jpg`, `cierre.jpg` | hero, Día, Filosofía, cierre |
 
-Pendiente: precios de Aurora, Ámbar y Valentine (`precio: null` en `js/productos.js` muestra "Precio por confirmar").
+Pendiente: precios de Boreal, Ámbar y Valentine; medidas de Aura, Nox, Solis, Ámbar y Valentine (campo `medidas` en `js/productos.js`).
 
 ## Desplegar
 - Vercel: "Add New → Project", importa la carpeta (o `vercel` desde la terminal). Sin build command; output = raíz.

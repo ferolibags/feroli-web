@@ -14,6 +14,7 @@
         Si el archivo no existe todavía, la tarjeta muestra el bolso y el
         detalle en el hover.
       - colecciones: en qué bloques aparece y en qué orden.
+      - medidas: filas de la tabla de medidas [['Ancho', '19 cm'], ...].
       - precio: null muestra "Precio por confirmar" hasta que pongas el valor.
    ========================================================= */
 
@@ -37,7 +38,8 @@ window.PRODUCTOS = [
   {
     id: 'bianca',
     nombre: 'Bolso Bianca',
-    precio: 105000,
+    precio: 160000,
+    medidas: [['Ancho', '18 cm'], ['Alto', '13 cm (21 cm con asa)'], ['Capacidad', 'Cabe un iPhone Pro Max']],
     fotos: ['img/productos/bianca-1.webp', 'img/productos/bianca-2.webp', 'img/productos/bianca-3.jpg'],
     modelo: 'img/modelos/bianca.jpg',
     colecciones: { destacados: 2, dia: 3 },
@@ -46,6 +48,7 @@ window.PRODUCTOS = [
     id: 'alba-marfil',
     nombre: 'Totebag Alba Marfil',
     precio: 95000,
+    medidas: [['Ancho', '34 cm'], ['Alto', '22 cm'], ['Capacidad', 'Cabe un iPhone Pro Max']],
     fotos: ['img/productos/alba-marfil-1.webp', 'img/productos/alba-marfil-2.webp', 'img/productos/alba-marfil-4.jpg'],
     modelo: 'img/modelos/alba-marfil.jpg',
     colecciones: { destacados: 3, dia: 1 },
@@ -59,25 +62,27 @@ window.PRODUCTOS = [
     colecciones: { destacados: 4, noche: 1 },
   },
   {
-    id: 'aurora',
-    nombre: 'Bolso Aurora',
+    id: 'boreal',
+    nombre: 'Bolso Boreal',
     precio: null, // pendiente: escribe el precio, ej. 120000
+    medidas: [['Ancho', '19 cm'], ['Alto', '16 cm'], ['Largo', '10 cm'], ['Forro', 'Interno de satín'], ['Capacidad', 'Cabe un iPhone Pro Max']],
     fotos: ['img/productos/aurora-1.webp', 'img/productos/aurora-2.webp'],
     modelo: '',
     colecciones: { dia: 4 },
   },
   {
-    id: 'solis',
-    nombre: 'Bolso Solis',
-    precio: 98000,
+    id: 'coral-baguette',
+    nombre: 'Bolso Coral Baguette',
+    precio: 180000,
+    medidas: [['Ancho', '18 cm'], ['Alto', '10 cm (20 cm con asa)'], ['Largo', '12 cm'], ['Capacidad', 'Cabe un iPhone Pro']],
     fotos: ['img/productos/solis-1.webp', 'img/productos/solis-2.webp', 'img/productos/solis-3.jpg'],
     modelo: 'img/modelos/solis.jpg',
     colecciones: { noche: 2 },
   },
   {
-    id: 'coral-baguette',
-    nombre: 'Bolso Coral Baguette',
-    precio: 160000,
+    id: 'solis',
+    nombre: 'Bolso Solis',
+    precio: 98000, // confirmar
     fotos: ['img/productos/coral-baguette-1.webp', 'img/productos/coral-baguette-2.webp', 'img/productos/coral-baguette-3.jpg'],
     modelo: 'img/editorial/dia-002.jpg',
     colecciones: { noche: 3 },
@@ -86,6 +91,7 @@ window.PRODUCTOS = [
     id: 'terra',
     nombre: 'Bolso Terra',
     precio: 110000,
+    medidas: [['Ancho', '19 cm'], ['Alto', '15 cm'], ['Largo', '6 cm'], ['Capacidad', 'Cabe un iPhone Pro Max']],
     fotos: ['img/productos/terra-1.webp', 'img/productos/terra-2.webp'],
     modelo: '',
     colecciones: { noche: 4 },
