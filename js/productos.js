@@ -23,7 +23,7 @@ window.FEROLI_CONFIG = {
   instagram: 'https://www.instagram.com/feroli.bags',
   // Dominio público del sitio (para los enlaces del pedido en WhatsApp).
   // Si cambias el dominio, reemplaza también feroli.vercel.app en p/*.html y pedido.html.
-  sitio: 'https://feroli.vercel.app',
+  sitio: 'https://feroli-web.vercel.app',
 };
 
 window.PRODUCTOS = [
