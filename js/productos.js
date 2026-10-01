@@ -23,8 +23,8 @@ window.FEROLI_CONFIG = {
   whatsapp: '573206586406', // número oficial FEROLI (+57 320 658 6406)
   instagram: 'https://www.instagram.com/feroli.bags',
   // Dominio público del sitio (para los enlaces del pedido en WhatsApp).
-  // Si cambias el dominio, reemplaza también feroli-web.vercel.app en p/*.html y pedido.html.
-  sitio: 'https://feroli-web.vercel.app',
+  // Si cambias el dominio, reemplaza también feroli.vercel.app en p/*.html y pedido.html.
+  sitio: 'https://feroli.vercel.app',
 };
 
 window.PRODUCTOS = [
@@ -103,7 +103,7 @@ window.PRODUCTOS = [
   {
     id: 'terra',
     nombre: 'Bolso Terra',
-    precio: 110000,
+    precio: 170000,
     entrega: 'Disponible · entrega inmediata',
     medidas: [['Largo', '19 cm'], ['Alto', '15 cm'], ['Ancho', '6 cm'], ['Capacidad', 'Cabe un iPhone Pro Max']],
     fotos: ['img/productos/terra-1.webp', 'img/productos/terra-2.webp'],
