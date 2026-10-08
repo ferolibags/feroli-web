@@ -311,8 +311,8 @@
       <p class="eyebrow">Medidas</p>
       <dl class="specs">${p.medidas.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '';
     specs.hidden = !specs.innerHTML;
-    const labels = ['Vista completa', 'Detalle de cuentas y placa', 'Con modelo', 'Otra vista', 'Otra vista'];
-    const fotos = p.fotos.slice(0, 5);
+    const labels = ['Vista completa', 'Detalle de cuentas y placa', 'Con modelo', 'Otra vista', 'Otra vista', 'Lanzamiento', 'Lanzamiento', 'Lanzamiento'];
+    const fotos = p.fotos.slice(0, 8);
     gTrack.innerHTML = fotos.map((src, i) => `
       <figure class="gal__slide"><img src="${src}" alt="${esc(p.nombre)}, ${labels[i].toLowerCase()}" class="${i > 0 || /\.jpe?g$/.test(src) ? 'is-photo' : ''}" draggable="false"></figure>`).join('');
     gThumbs.innerHTML = fotos.map((src, i) => `
